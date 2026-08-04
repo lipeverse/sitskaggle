@@ -16,7 +16,8 @@ Imports:
     desc,
     tibble,
     dplyr,
-    cli
+    cli,
+    pak
 Suggests:
     torch
 License: GPL (>= 3)

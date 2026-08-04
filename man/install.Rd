@@ -4,10 +4,10 @@
 \alias{install}
 \title{Install packages in kaggle environment}
 \usage{
-install(...)
+install(output_dir)
 }
 \arguments{
-\item{...}{extra arguments for install packages}
+\item{output_dir}{Character with the output directory}
 }
 \description{
 Install packages in kaggle environment
