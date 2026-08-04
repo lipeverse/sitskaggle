@@ -4,7 +4,10 @@
 \alias{install}
 \title{Install packages in kaggle environment}
 \usage{
-install()
+install(...)
+}
+\arguments{
+\item{...}{extra arguments for install packages}
 }
 \description{
 Install packages in kaggle environment

@@ -1,7 +1,9 @@
 #' @title Install packages in kaggle environment
 #'
+#' @param ... extra arguments for install packages
+#'
 #' @export
-install <- function() {
+install <- function(...) {
     .has_package <- function(package) {
         res <- tryCatch(find.package(package = package),
                         error = function(e) NULL)
@@ -49,7 +51,7 @@ install <- function() {
     packages_to_install <- packages[packages[["package"]] != "torch", ]
     # install packages
     cli::cli_alert_info("Install dependencies packages!")
-    install.packages(packages_to_install[["package"]])
+    install.packages(packages_to_install[["package"]], ...)
     # Install torch
     Sys.setenv("CUDA" = "12.8")
     options(timeout = 600)
@@ -58,11 +60,12 @@ install <- function() {
     install.packages(
         "cuda12.8",
         repos = c("https://mlverse.r-universe.dev",
-                  "https://cloud.r-project.org")
+                  "https://cloud.r-project.org"),
+        ...
     )
     # Install torch package
     cli::cli_alert_info("Install torch!")
-    install.packages("torch")
+    install.packages("torch", ...)
     cli::cli_alert_info("Install lantern!")
     torch::install_torch()
     # Return!
