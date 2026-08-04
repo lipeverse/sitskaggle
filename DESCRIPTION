@@ -1,0 +1,24 @@
+Package: sitskaggle
+Type: Package
+Title: Creates bundle for kaggle
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Felipe", "Carlos", email = "efelipecarlos@gmail.com", role = c("aut")
+    ),
+    person(
+      "Felipe", "Souza", email = "lipecaso@gmail.com", role = c("aut", "cre")
+    )
+  )
+Description: More about what it does (maybe more than one line).
+    Continuation lines should be indented.
+Imports:
+    desc,
+    tibble,
+    dplyr
+Suggests:
+    torch
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
