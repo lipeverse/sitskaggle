@@ -48,18 +48,22 @@ install <- function() {
     # Remove torch
     packages_to_install <- packages[packages[["package"]] != "torch", ]
     # install packages
+    cli::cli_alert_info("Install dependencies packages!")
     install.packages(packages_to_install[["package"]])
     # Install torch
     Sys.setenv("CUDA" = "12.8")
     options(timeout = 600)
     # Install cuda package
+    cli::cli_alert_info("Install cuda12.8 package!")
     install.packages(
         "cuda12.8",
         repos = c("https://mlverse.r-universe.dev",
                   "https://cloud.r-project.org")
     )
     # Install torch package
+    cli::cli_alert_info("Install torch!")
     install.packages("torch")
+    cli::cli_alert_info("Install lantern!")
     torch::install_torch()
     # Return!
     return(packages)

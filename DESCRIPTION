@@ -15,7 +15,8 @@ Description: More about what it does (maybe more than one line).
 Imports:
     desc,
     tibble,
-    dplyr
+    dplyr,
+    cli
 Suggests:
     torch
 License: GPL (>= 3)
