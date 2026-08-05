@@ -2,3 +2,6 @@
 
 export(bundle)
 export(install)
+export(patch)
+importFrom(utils,install.packages)
+importFrom(utils,installed.packages)

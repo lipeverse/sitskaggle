@@ -4,10 +4,10 @@
 \alias{install}
 \title{Install packages in kaggle environment}
 \usage{
-install(output_dir)
+install(include_data = FALSE)
 }
 \arguments{
-\item{output_dir}{Character with the output directory}
+\item{include_data}{Logical indicating if `sitsdata` must be installed}
 }
 \description{
 Install packages in kaggle environment

@@ -2,10 +2,13 @@
 % Please edit documentation in R/kaggle.R
 \name{bundle}
 \alias{bundle}
-\title{Bundle into kaggle environment}
+\title{Bundle packages installed in kaggle environment}
 \usage{
-bundle()
+bundle(output_dir = ".")
+}
+\arguments{
+\item{output_dir}{Character with the output directory}
 }
 \description{
-Bundle into kaggle environment
+Bundle packages installed in kaggle environment
 }
