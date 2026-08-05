@@ -63,12 +63,12 @@ install <- function(output_dir) {
     # Install sits
     pak::pak("e-sensing/sits@dev")
     # Create directory to the bundle
-    output_dir <- paste0(output_dir, "/sits-bundle")
-    dir.create(output_dir)
+    # output_dir <- paste0(output_dir, "/sits-bundle")
+    # dir.create(output_dir)
     # Create output file
-    out_file <- paste0(output_dir, "/sits-bundle.zip")
+    # out_file <- paste0(output_dir, "/sits-bundle.zip")
     # Zip packages
-    system(paste("zip -r", out_file, "/usr/local/lib/R/site-library/"))
+    # system(paste("zip -r", out_file, "/usr/local/lib/R/site-library/"))
     # Return!
     return(packages)
 }
