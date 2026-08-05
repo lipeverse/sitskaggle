@@ -52,6 +52,8 @@ install <- function(output_dir) {
             )
         }
     })
+    # Install base dependencies (not working with pak)
+    install.packages(c("cols4all", "leaflegend", "maptiles", "leafem"))
     # Get packages to install
     packages <- dplyr::bind_rows(packages_to_install)
     # install packages
