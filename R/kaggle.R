@@ -59,7 +59,7 @@ install <- function(output_dir) {
     # Install terra
     pak::pkg_install("terra@1.9-27")
     # Remove torch
-    purrr::map(packages_to_install[["package"]], pak::pak)
+    purrr::map(packages_to_install[["package"]], pak::pak, dependencies = FALSE)
     # Install sits
     pak::pak("e-sensing/sits@dev")
     # Create directory to the bundle
