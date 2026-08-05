@@ -52,6 +52,8 @@ install <- function(output_dir) {
             )
         }
     })
+    # Install base dependencies (not working with pak)
+    install.packages(c("cols4all", "leaflegend", "maptiles", "leafem"))
     # Get packages to install
     packages <- dplyr::bind_rows(packages_to_install)
     # install packages
@@ -59,7 +61,7 @@ install <- function(output_dir) {
     # Install terra
     pak::pkg_install("terra@1.9-27")
     # Remove torch
-    pak::pak(packages_to_install[["package"]], dependencies = FALSE)
+    purrr::map(packages_to_install[["package"]], pak::pak, dependencies = FALSE)
     # Install sits
     pak::pak("e-sensing/sits@dev")
     # Create directory to the bundle
