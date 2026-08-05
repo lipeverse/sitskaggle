@@ -52,15 +52,15 @@ install <- function(output_dir) {
             )
         }
     })
-    # Install base dependencies (not working with pak)
-    install.packages(c("cols4all", "leaflegend", "maptiles", "leafem"))
     # Get packages to install
     packages <- dplyr::bind_rows(packages_to_install)
     # install packages
     packages_to_install <- packages[!packages[["package"]] %in% c("torch", "terra"), ]
     # Install terra
     pak::pkg_install("terra@1.9-27")
-    # Remove torch
+    # Install base dependencies (not working with pak)
+    install.packages(c("cols4all", "leaflegend", "maptiles", "leafem"))
+    # Install dependencies
     purrr::map(packages_to_install[["package"]], pak::pak, dependencies = FALSE)
     # Install sits
     pak::pak("e-sensing/sits@dev")
