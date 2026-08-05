@@ -4,6 +4,8 @@
 #'
 #' @export
 install <- function(output_dir) {
+    # Install pack
+    install.packages("pak")
     # Override CRAN
     pak::repo_add(CRAN = "PPM@latest")
     # Remove torch auto install
@@ -58,25 +60,12 @@ install <- function(output_dir) {
     packages_to_install <- packages[!packages[["package"]] %in% c("torch", "terra"), ]
     # Install terra
     pak::pkg_install("terra@1.9-27")
-    # Remove torch
-    pak::pak(packages_to_install[["package"]])
-    # Install torch
-    Sys.setenv("CUDA" = "12.8")
-    options(timeout = 600)
-    # Install cuda package
-    cli::cli_alert_info("Install cuda12.8 package!")
-    install.packages(
-        "cuda12.8",
-        repos = c("https://mlverse.r-universe.dev",
-                  "https://cloud.r-project.org")
-    )
-    # Install torch package
-    cli::cli_alert_info("Install torch!")
-    pak::pak("torch")
-    cli::cli_alert_info("Install lantern!")
-    torch::install_torch()
+    # Install base dependencies (not working with pak)
+    install.packages(c("cols4all", "leaflegend", "maptiles", "leafem"))
+    # Install dependencies
+    purrr::map(packages_to_install[["package"]], pak::pak, dependencies = FALSE)
     # Install sits
-    pak::pak(c("e-sensing/sits@dev", "e-sensing/sitsdata"))
+    pak::pak("e-sensing/sits@dev")
     # Create directory to the bundle
     output_dir <- paste0(output_dir, "/sits-bundle")
     dir.create(output_dir)
