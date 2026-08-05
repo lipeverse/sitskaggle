@@ -4,6 +4,8 @@
 #'
 #' @export
 install <- function(output_dir) {
+    # Install pack
+    install.packages("pak")
     # Override CRAN
     pak::repo_add(CRAN = "PPM@latest")
     # Remove torch auto install
