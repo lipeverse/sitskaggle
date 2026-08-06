@@ -19,9 +19,8 @@ pak::pak("lipeverse/sitskaggle")
 
 ## Example
 
-`sitskaggle` has three functions: `install()`, `bundle()` and `patch()`.
-You use the first two once, to create the bundle, and the last one in
-every session that needs `sits`.
+`sitskaggle` provides only three functions: `install()`, `bundle()`, and
+`patch()`. Their usage is described in the sections below.
 
 ### Creating the bundle
 
